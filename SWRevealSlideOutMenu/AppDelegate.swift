@@ -9,32 +9,15 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var viewNavigationController = UINavigationController()
-    var menuNavigationController = UINavigationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let mainViewController = ViewController()
-        let menuViewController = MenuViewController()
-        self.viewNavigationController = UINavigationController(rootViewController: mainViewController)
-        self.menuNavigationController = UINavigationController(rootViewController: menuViewController)
-
-        let revealController = SWRevealViewController(rearViewController: menuViewController, frontViewController: viewNavigationController)
-        revealController?.delegate = self
-
-
-
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        //self.window?.rootViewController = revealController
-        //let navRevealController = UINavigationController(rootViewController: revealController ?? menuViewController)
-        self.window?.rootViewController = revealController
-
-        //self.window?.rootViewController = MenuViewController()
-        self.window?.backgroundColor = UIColor.white
-        self.window?.makeKeyAndVisible()
+        let appConfigurator = AppConfigurator()
+        self.window = appConfigurator.createRevealMenu(frontViewController: ViewController(),
+                                                       rearViewController: MenuViewController())
         return true
     }
 

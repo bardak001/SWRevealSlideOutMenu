@@ -109,8 +109,8 @@
 		9EB51F812292AB4A0052A6BA /* SWRevealSlideOutMenu */ = {
 			isa = PBXGroup;
 			children = (
-				9EB51FB72292B8140052A6BA /* AppConfigurator.swift */,
 				9EB51F822292AB4A0052A6BA /* AppDelegate.swift */,
+				9EB51FB72292B8140052A6BA /* AppConfigurator.swift */,
 				9EB51FB42292AC080052A6BA /* MenuViewController.swift */,
 				9EC2296B2293E8D70086D230 /* ViewControllers */,
 				9EB51F862292AB4A0052A6BA /* Main.storyboard */,

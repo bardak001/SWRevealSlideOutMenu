@@ -8,5 +8,19 @@
 
 import UIKit
 
-//class AppConfigurator {
-//}
+class AppConfigurator: NSObject, SWRevealViewControllerDelegate {
+    
+    func createRevealMenu(frontViewController: UIViewController, rearViewController: UIViewController) -> UIWindow? {
+        
+        var window: UIWindow?
+        let viewNavigationController = UINavigationController(rootViewController: frontViewController)
+        
+        let revealController = SWRevealViewController(rearViewController: rearViewController, frontViewController: viewNavigationController)
+        revealController?.delegate = self
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = revealController
+        window?.makeKeyAndVisible()
+        return window
+    }
+}
